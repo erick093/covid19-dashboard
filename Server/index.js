@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
-const Twitter = require('node-tweet-stream');
+const Twitter = require('node-tweet-stream')
 const RxHR = require('@akanass/rx-http-request').RxHR;
 const { map, filter, reduce, distinct,mergeMap,toArray } = require('rxjs/operators');
 const {from} = require('rxjs');
@@ -15,12 +15,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-const PORT = process.env.PORT || 9000;
-app.listen(PORT, () => {
-    console.log(`server started on port ${PORT}`);
-});
-//const server = http.createServer(app);
-const io = require('socket.io')(app, { cors: { origin: '*'}});
+
+
+const server = http.createServer(app);
+const io = require('socket.io')(server, { cors: { origin: '*'}});
 
 
 const buildPath = path.join(__dirname, '..', 'build');
@@ -29,10 +27,10 @@ app.use(express.static(buildPath));
 
 const OPEN_DATA = 'https://opendata.ecdc.europa.eu/covid19/casedistribution/json/';
 const GLOBAL_DATA = 'https://corona-api.com/countries';
+const PORT = process.env.PORT || 9000;
 
 
-
-//server.listen(PORT);
+server.listen(PORT);
 
 t = new Twitter({
     consumer_key: 'PJockockOEo3Z2eKDwxlTrrUp',
@@ -130,7 +128,9 @@ if(Status){
 
 
 
-
+// app.listen(PORT, () => {
+//     console.log(`server started on port ${PORT}`);
+// });
 
 
 
