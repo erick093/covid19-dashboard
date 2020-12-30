@@ -1,6 +1,7 @@
 import {from} from 'rxjs';
+import io from 'socket.io-client'
 export const BASE_API_URL = '';
-
+const socket = io(BASE_API_URL)
 
 export const testAPI = () =>{
     from(
@@ -49,6 +50,13 @@ export function fetchCountry(keyword = "") {
             return data.filter(data =>
                 data.toUpperCase().includes(keyword.toUpperCase()));
         });
+}
+
+export function tweetsStream(stream){
+    socket.connect();
+    console.log("socket connected:", socket.connected);
+    socket.on('tweet', data => stream.next(data));
+
 }
     
     

@@ -4,7 +4,7 @@ import WeeklyChart from './Charts'
 import Cards from './Cards'
 import {getCountryData, getListCountries} from "../Api"
 import SearchBar from "./Searchbar";
-
+import Tweet from "./Tweet";
 
 class Dashboard extends Component {
 
@@ -74,7 +74,7 @@ class Dashboard extends Component {
                       <div className="card">
                         <div className="card-header ">
                           <h4 className="card-title">Weekly cases: {this.state.countryText} </h4>
-                          <p className="card-category">24 Hours performance</p>
+
                         </div>
                         <div className="card-body ">
                           <div id="app" className="loader" ></div>
@@ -83,12 +83,15 @@ class Dashboard extends Component {
                         <div className="card-footer ">
                           <hr />
                           <div className="stats">
-                            <i className="fa fa-history"></i> Updated 3 minutes ago
+                            <i className="fa fa-history"></i>
                           </div>
                         </div>
                       </div>
                     </div>
                     )}
+                  <div className="col-md-4">
+                      <Tweet   />
+                  </div>
               </div>
                 <Cards />
             </div>

@@ -120,7 +120,7 @@ export default class WeeklyCases extends Component {
                 <div className="card">
                     <div className="card-header ">
                         <h4 className="card-title">Weekly cases: {this.props.countryName} </h4>
-                        <p className="card-category">24 Hours performance</p>
+                        <p className="card-category">COVID-19 Cases</p>
                     </div>
                     <div className="card-body ">
                         <div id="WeeklyChart" style={{ width: "95%", height: "500px" }}></div>
@@ -128,7 +128,7 @@ export default class WeeklyCases extends Component {
                     <div className="card-footer ">
                         <hr />
                         <div className="stats">
-                            <i className="fa fa-history"></i> Updated 3 minutes ago
+                            <i className="fa fa-history"></i> Updated every week
                         </div>
                     </div>
                 </div>

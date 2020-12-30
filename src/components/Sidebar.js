@@ -21,13 +21,6 @@ class Sidebar extends Component {
                     <p>Dashboard</p>
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to='/'>
-                    <i className="nc-icon nc-circle-09"></i>
-                    <p>Place holder</p>
-                  </NavLink>
-                </li>
-    
               </ul>
             </div>
           </div>

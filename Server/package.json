@@ -16,5 +16,8 @@
     "express": "^4.17.1",
     "node-tweet-stream": "^2.0.3",
     "rxjs": "^6.6.3"
+  },
+  "devDependencies": {
+    "socket.io": "^3.0.4"
   }
 }
