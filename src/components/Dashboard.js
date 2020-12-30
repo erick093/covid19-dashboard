@@ -38,11 +38,7 @@ class Dashboard extends Component {
 
   componentDidMount(){
     console.log("Component: Dashboard mounted correctly");
-    //this.updateCountryData();
-    //testAPI();
-    //this.getArrayCountries();
-    //getListCountries();
-    //this.countryDisplayData();
+
 
   }
   componentDidUpdate(){

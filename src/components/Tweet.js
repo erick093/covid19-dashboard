@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import {tweetsStream} from "../Api";
-import { map,debounce} from 'rxjs/operators';
+import { debounce} from 'rxjs/operators';
 import {Subject,interval} from 'rxjs';
 
 let stream = new Subject();

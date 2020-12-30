@@ -1,5 +1,5 @@
-import React, {Fragment} from "react";
-import { Subject,empty,of } from "rxjs";
+import React from "react";
+import { Subject} from "rxjs";
 import {
     filter,
     debounceTime,
@@ -36,7 +36,7 @@ const SearchBar = (props) => {
         const subscription = subjectRef.current
             .pipe(
                 filter(function(text) {
-                    return text.length >= 2; // Only if the text is longer than 2 characters
+                    return text.length >= 2;
                 }),
                 debounceTime(750),
                 distinctUntilChanged(),

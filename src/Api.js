@@ -1,6 +1,6 @@
 import {from} from 'rxjs';
 import io from 'socket.io-client'
-export const BASE_API_URL = 'https://eres-covid19.herokuapp.com';
+export const BASE_API_URL = '';
 const socket = io(BASE_API_URL)
 
 export const testAPI = () =>{
