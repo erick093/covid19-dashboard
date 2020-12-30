@@ -27,7 +27,7 @@ app.use(express.static(buildPath));
 
 const OPEN_DATA = 'https://opendata.ecdc.europa.eu/covid19/casedistribution/json/';
 const GLOBAL_DATA = 'https://corona-api.com/countries';
-const PORT = process.env.PORT || 9000
+const PORT = process.env.PORT || 9000;
 
 
 server.listen(PORT);
