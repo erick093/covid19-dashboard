@@ -62,7 +62,8 @@ io.on('connection', socket => {
     })
 });
 
-const globalData$ = RxHR.get(`${GLOBAL_DATA}`,{json:true}).pipe(map( response => response.body));
+const globalData$ = RxHR.get(`${GLOBAL_DATA}`,{json:true}).pipe(
+    map( response => response.body));
 const textGlobalData = globalData$.pipe(
     map( data => data.data.map(
         element => element.latest_data)
@@ -70,31 +71,38 @@ const textGlobalData = globalData$.pipe(
 );
 
 app.get('/globalDeaths',(req, res, next) => {
-    const sumDeaths = textGlobalData.pipe( map( data =>
-        data.reduce( (acc,val) =>
-            acc + parseInt(val.deaths),0 )
-    ));
 
-    sumDeaths.subscribe( data => res.send({deaths: data }));
+    const sumDeaths = textGlobalData.pipe(
+        map( data => data.map( val=> val.deaths )),
+    );
+    sumDeaths.subscribe( data => from(data)
+        .pipe(reduce((acc,val) => acc + parseInt(val),0))
+        .subscribe(data => res.send({deaths: data }))
+    );
 });
 
 
 app.get('/globalConfirmed',(req, res, next) => {
-    const sumConfirmed = textGlobalData.pipe( map( data =>
-        data.reduce( (acc,val) =>
-            acc + parseInt(val.confirmed),0 )
-    ));
 
-    sumConfirmed.subscribe( data => res.send({confirmed: data}));
+    const sumConfirmed = textGlobalData.pipe(
+        map( data => data.map( val => val.confirmed )),
+    );
+    sumConfirmed.subscribe( data => from(data)
+        .pipe(reduce((acc,val) => acc + parseInt(val),0))
+        .subscribe(data => res.send({confirmed: data }))
+    );
+
 });
 
 app.get('/globalRecovered',(req, res, next) => {
-    const sumRecovered = textGlobalData.pipe( map( data =>
-        data.reduce( (acc,val) =>
-            acc + parseInt(val.recovered),0 )
-    ));
+    const sumRecovered = textGlobalData.pipe(
+        map( data => data.map( val=> val.recovered )),
+    );
+    sumRecovered.subscribe( data => from(data)
+        .pipe(reduce((acc,val) => acc + parseInt(val),0))
+        .subscribe(data => res.send({recovered: data }))
+    );
 
-    sumRecovered.subscribe( data => res.send({recovered: data}));
 });
 
 app.post("/casesWeekly",(req,res,next) => {
