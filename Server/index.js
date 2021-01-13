@@ -33,10 +33,10 @@ const PORT = process.env.PORT || 9000;
 server.listen(PORT);
 
 t = new Twitter({
-    consumer_key: 'PJockockOEo3Z2eKDwxlTrrUp',
-    consumer_secret: 'S3tqTYpsKCdicROexXeYkCxwPcN0NYCfnoaRWcfpJFSffoWaHP',
-    token: '1609003328-ERcHxUR0uTd47ioL54S02aBBUztl8XgLwaCcWDZ',
-    token_secret: '6o3Db3lo6DyWDj4NOpDlmJeQVhqoB8sJwLNqa2CUSZSLg'
+    consumer_key: '',
+    consumer_secret: '',
+    token: '',
+    token_secret: ''
 })
 
 io.on('connection', socket => {
