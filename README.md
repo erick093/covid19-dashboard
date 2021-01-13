@@ -13,6 +13,7 @@ This command will start the node server.
 
 Go to the direction http://localhost:9000
 
+Live demo: https://eres-covid19.herokuapp.com/
 
 ## Learn More
 
